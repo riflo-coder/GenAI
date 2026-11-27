@@ -1,17 +1,17 @@
 id,split,label,text
-1,train,aliran,tekanan fluida sekitar silinder
-2,train,aliran,kecepatan aliran pada saluran
-3,train,aliran,fluida mengalami perubahan tekanan
-4,train,aliran,simulasi aliran di sekitar silinder
-5,train,aliran,vorteks mengubah kecepatan fluida
-6,train,struktur,tegangan material akibat beban
-7,train,struktur,deformasi struktur akibat lentur
-8,train,struktur,beban mengubah deformasi pelat
-9,validation,aliran,perubahan tekanan pada saluran fluida
-10,validation,aliran,vorteks di sekitar silinder
-11,validation,struktur,lentur meningkatkan tegangan pelat
-12,validation,struktur,deformasi material akibat beban
-13,test,aliran,aliran fluida dengan vorteks
-14,test,aliran,tekanan turun ketika kecepatan naik
-15,test,struktur,beban lentur pada struktur
-16,test,struktur,tegangan dan deformasi pelat
+1,train,flow,fluid pressure around a cylinder
+2,train,flow,flow velocity in a channel
+3,train,flow,fluid pressure changes
+4,train,flow,flow simulation around a cylinder
+5,train,flow,vortices change fluid velocity
+6,train,structures,material stress under load
+7,train,structures,structural deformation due to bending
+8,train,structures,load changes plate deformation
+9,validation,flow,fluid pressure changes in a channel
+10,validation,flow,vortices around a cylinder
+11,validation,structures,bending increases plate stress
+12,validation,structures,material deformation under load
+13,test,flow,fluid flow with vortices
+14,test,flow,pressure drops as velocity increases
+15,test,structures,bending load on a structure
+16,test,structures,plate stress and deformation

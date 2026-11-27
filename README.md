@@ -1,30 +1,30 @@
 # GenAI
 
-Kerangka kerja eksperimen machine learning yang dapat direproduksi. Notebook yang sudah ada tersedia di [quickstarts/](quickstarts/).
+A framework for reproducible machine learning experiments. The existing notebook is available in [quickstarts/](quickstarts/).
 
-## Jalankan eksperimen pertama
+## Run the first experiment
 
-Dari root repo, gunakan Python 3.10+ tanpa dependensi pihak ketiga.
+From the repository root, use Python 3.10 or later. The example uses the Python standard library.
 
 ```sh
 python -m research.run --config configs/text_baseline.json --split validation --output runs/text-validation.json
 ```
 
-Contoh ini melatih Naive Bayes multinomial pada data teks sintetis dan membandingkannya dengan prediksi kelas mayoritas. Keduanya dilatih pada split `train` dan dievaluasi pada `validation` yang sama. Output JSON memuat jumlah sampel, akurasi, macro-F1, prediksi per sampel, konfigurasi, hash data dan kode, versi Python, serta revisi Git jika tersedia. Data sintetis berfungsi untuk memeriksa alur eksperimen.
+The example fits a multinomial Naive Bayes classifier and a majority-class baseline on the same synthetic training split, then evaluates both on the validation split. The JSON output records sample counts, accuracy, macro-F1, predictions for each sample, the configuration, data and code hashes, the Python version, and the Git revision when available. The synthetic data is intended to verify the experiment workflow.
 
-Setelah metode dan kriteria evaluasi dibekukan, jalankan evaluasi akhir dengan `--split test --output runs/text-test.json`. Setiap run memerlukan nama output baru.
+After freezing the method and evaluation criteria, run the final evaluation with `--split test --output runs/text-test.json`. Use a new output path for each run.
 
-## Mulai studi baru
+## Start a new study
 
-1. Isi [protokol eksperimen](docs/protokol-riset.md) dengan pertanyaan, hipotesis, baseline, metrik utama, dan kriteria keberhasilan.
-2. Catat sumber, versi, lisensi, dan unit pemisahan data. Lakukan preprocessing yang mempelajari statistik hanya pada data latih.
-3. Jalankan baseline, pilih metode dengan split validasi, lalu evaluasi metode final pada split uji. Catat variasi antar-seed bila training bersifat stokastik.
-4. Simpan konfigurasi, rujukan ke artefak, dan interpretasi hasil, termasuk hasil negatif.
+1. Fill out the [experiment protocol](docs/research-protocol.md) with the question, hypothesis, baselines, primary metric, and success criteria.
+2. Record the data source, version, license, and unit of splitting. Fit data-dependent preprocessing on the training split.
+3. Run the baselines, select methods on the validation split, and evaluate the final method on the test split. Report variation across seeds for stochastic training.
+4. Save the configuration and artifact references. Interpret the results, including negative findings.
 
-| Lokasi | Isi |
+| Path | Contents |
 | --- | --- |
-| `docs/protokol-riset.md` | Template per eksperimen dan protokol evaluasi |
-| `configs/text_baseline.json` | Konfigurasi contoh |
-| `data/text_fixture.csv` | Dataset sintetis dengan split tetap |
-| `research/run.py` | Pelatihan dan evaluasi baseline |
-| `runs/` | Hasil lokal dalam JSON |
+| `docs/research-protocol.md` | Experiment template and evaluation protocol |
+| `configs/text_baseline.json` | Example configuration |
+| `data/text_fixture.csv` | Synthetic dataset with fixed splits |
+| `research/run.py` | Baseline training and evaluation |
+| `runs/` | Local JSON results |
